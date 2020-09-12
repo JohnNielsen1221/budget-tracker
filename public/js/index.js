@@ -5,9 +5,9 @@ fetch("/api/transaction")
   .then(response => {
     return response.json();
   })
-  .catch(err => {
-    console.log(err);
-  })
+  // .catch(err => {
+  //   console.log(err);
+  // })
   .then(data => {
     // save db data on global variable
     transactions = data;
@@ -15,7 +15,10 @@ fetch("/api/transaction")
     populateTotal();
     populateTable();
     populateChart();
-  });
+  })
+.catch(err => {
+  console.log(err);
+});
 
 function populateTotal() {
   // reduce transaction amounts to a single total value
